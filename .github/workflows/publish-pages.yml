@@ -33,9 +33,15 @@ jobs:
         env:
           SHADOW_APPROVED_MANIFEST: ${{ inputs.candidate_sha256 }}
         run: python delivery/tools/prepare_pages.py --candidate delivery/site --existing . --output _shadow_pages --approved-sha "$SHADOW_APPROVED_MANIFEST"
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+      # Match upload-pages-artifact's Linux archive format without its unpinned nested action.
+      - name: Archive verified Pages artifact
+        run: tar --dereference --hard-dereference --directory _shadow_pages -cf "$RUNNER_TEMP/artifact.tar" --exclude=.git --exclude=.github .
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          path: _shadow_pages
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
   publish:
     needs: verify
     runs-on: ubuntu-24.04
