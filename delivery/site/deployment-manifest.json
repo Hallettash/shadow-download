@@ -1,0 +1,22 @@
+{
+  ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "kodi/RELEASE-NOTES.txt": "e9f110e881d6465ef4b115dc30d958189001ffcaf010545e951512a7498f54d4",
+  "kodi/development/addons.xml": "b3f3e424a6407af314dbd8d2dd8b2ee6686c856889beafb54995b56386041c48",
+  "kodi/development/addons.xml.sha256": "8db1b11c3665d03f8acaef911207c510aaea116469cc39909b485286d5f48cb3",
+  "kodi/development/index.html": "e0563bb99f90046caac4d1748b5b9a7cddaf88dd37ac9056b849db269929f762",
+  "kodi/development/repository.shadow.development-0.1.0.zip": "79ee67e052542c21ec2e562da17efe06e025b31403c037e1df640eca157bd95d",
+  "kodi/development/repository.shadow.development-0.1.0.zip.sha256": "3844c24264074cd91d68373e237f8b4c8eba32946dceb2bc597c032675aa64e9",
+  "kodi/development/repository.shadow.development/repository.shadow.development-0.1.0.zip": "79ee67e052542c21ec2e562da17efe06e025b31403c037e1df640eca157bd95d",
+  "kodi/development/repository.shadow.development/repository.shadow.development-0.1.0.zip.sha256": "3844c24264074cd91d68373e237f8b4c8eba32946dceb2bc597c032675aa64e9",
+  "kodi/index.html": "1166352374af91b0f8c1bfbf4e69ed091d867b341ae2f39335b64ab64ddf600e",
+  "kodi/provenance.json": "8bf8bd85f7bb70b901049e4767a1be6762f48bfd47b943d0e54d843d4915ee94",
+  "kodi/stable/addons.xml": "03814500e188fd0bdaefcafba6a75cf645336fa36469de5a37d05dd9ffff6155",
+  "kodi/stable/addons.xml.sha256": "123a13841a57f2069caa6e0d63785a621282e4f00d28104f1fd9181116058ab3",
+  "kodi/stable/index.html": "9924727f79343944a8ea20bb22e6c28e5dfec6e3394d928a48275e8aee24b660",
+  "kodi/stable/repository.shadow.stable-0.1.0.zip": "b66390846df04e3c00835ac91a62418fac919c48ab209ef1d4116125a55a84e0",
+  "kodi/stable/repository.shadow.stable-0.1.0.zip.sha256": "476ad73a5585a4b4a04140d0c45092876f1386cfb65a732fdc4ef49cc2a0ecfa",
+  "kodi/stable/repository.shadow.stable/repository.shadow.stable-0.1.0.zip": "b66390846df04e3c00835ac91a62418fac919c48ab209ef1d4116125a55a84e0",
+  "kodi/stable/repository.shadow.stable/repository.shadow.stable-0.1.0.zip.sha256": "476ad73a5585a4b4a04140d0c45092876f1386cfb65a732fdc4ef49cc2a0ecfa",
+  "kodi/stable/script.shadow/script.shadow-0.0.57.zip": "581aa60e3c3b3b702b006829140f43567eb24ee83472e6722342de08b5d9700f",
+  "kodi/stable/script.shadow/script.shadow-0.0.57.zip.sha256": "f08f3a4c86bca5ccc379b507b4b3e6b46e7ab4a26fccc799aa2de3c8ea26035d"
+}

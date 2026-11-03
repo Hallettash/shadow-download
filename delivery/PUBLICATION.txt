@@ -1,0 +1,81 @@
+SHK-002 — PUBLICATION AND RELEASE OPERATIONS
+
+PROPOSED HOSTING
+Existing public artifact repository: Hallettash/shadow-download.
+Stable entry: https://hallettash.github.io/shadow-download/kodi/
+Development entry: https://hallettash.github.io/shadow-download/kodi/development/
+Static build contains kodi/stable/ and kodi/development/ with separate indexes.
+No domain purchase, paid infrastructure, login-gated downloads or GitHub web
+download UI. Generated URLs are direct HTTPS file URLs. No live-host claim yet.
+
+FOUNDER APPROVALS REQUIRED BEFORE PUBLICATION
+1. Approve this exact delivery candidate and deployment-manifest.json SHA-256.
+2. Approve publishing .57 as the known-issues Stable / Tester baseline and the
+   empty Development repository, plus the proposed host/path and public exposure
+   of runtime Python/artwork. This is not approval of a production product.
+3. Approve copying only the deployment export into the public repository.
+4. Approve changing the existing Pages publishing source to GitHub Actions,
+   enabling/enforcing HTTPS as needed, and setting main-only deployment rules.
+5. Approve the first actual deployment and subsequent limited Xbox test session.
+   External tester distribution and broad promotion remain separate decisions.
+
+FIRST INSTALLATION OF THE PIPELINE (after approvals)
+A. Keep full source/handover in a PRIVATE engineering repository. Do not change
+   visibility. Its verify-release workflow has read-only repository permission
+   and creates artifacts only. First initialise that repository from the local
+   bundle, preserving the recorded commits; no private remote is assumed ready.
+B. On the existing public artifact repository, preserve all current root files.
+   Commit the export as delivery/, and copy delivery/publish-pages.yml to
+   .github/workflows/publish-pages.yml. This commit itself is public and needs
+   approval even if it does not yet deploy. Review branch protection before use.
+C. Configure Pages to use GitHub Actions. Do not leave an old branch publisher
+   automatically publishing the entire repository, which could expose tooling
+   paths unintentionally. Existing live downloads must remain available.
+D. Configure github-pages environment with Founder-required review and main-only
+   deployments. Protect main/workflow files with review controls. The YAML
+   reference alone does not configure or prove environment protections.
+E. Review the current artifact manifest hash against the local handover.
+   Manually dispatch Publish Founder-approved Shadow repository on main with
+   that hash and the exact approval phrase displayed by the workflow.
+F. prepare_pages.py validates the candidate and the five legacy root files
+   against recorded hashes. The existing .53 binary hash is from the published
+   checksum, not independently downloaded in this session; staging verifies its
+   actual bytes before deployment. Any drift fails closed and needs review.
+G. Review the protected-environment deployment, then allow the Pages job. Only
+   that job has pages:write and id-token:write; no PAT or admin secret is needed.
+H. Run the supplied read-only smoke check from a permitted environment:
+   python delivery/tools/check_https.py --site delivery/site --base https://hallettash.github.io/shadow-download/kodi/
+   Require 200, exact bytes/hashes, valid system TLS and no redirect. If a
+   redirect appears, investigate it; do not weaken TLS or silently follow it.
+I. Perform the Xbox checklist before inviting external testers.
+
+FUTURE RELEASES
+Each app release gets an increasing numeric x.y.z version and a frozen source
+snapshot path in config/release-plan.json. Never edit old snapshots/packages.
+The normal build runs each indexed/retained release's bundled Shadow harness
+against that release's packaged runtime in an isolated directory. It requires
+a newly generated successful non-empty result and no skips. Review the harness
+itself alongside new runtime source; never promote using a copied old summary.
+Keep all prior channel versions listed for immutable rollback archive URLs;
+only the highest approved version is advertised in addons.xml. Set recorded
+stable_approved only after Founder app-release approval. Engineering builds go
+only in development membership. Stable promotion requires a separate reviewed
+plan change, full verification and publication approval. A mere push/PR cannot
+deploy: the public workflow is manual and the source workflow cannot publish.
+
+After each approved publication, record the accepted deployment manifest in
+config/published-packages.json. Both normal verification and the build CLI
+enforce this ledger. The CLI also accepts --previous-manifest PATH to check an
+explicit earlier manifest. Deletion/rewrite of immutable ZIP URLs fails closed.
+The initial ledger is empty because no SHK-002 package is live. Review the ledger
+diff before subsequent publication; changing it requires release-owner approval.
+If an older repository/bootstrap ZIP is no longer generated, preserve its bytes
+and sidecar under archive/ at the same site-relative path. The builder copies
+only ledger-listed missing archives and verifies their hashes. Missing archives
+fail the build rather than silently breaking rollback or bootstrap URLs.
+
+CI does not automatically alter GitHub visibility, enable Pages, configure
+environments, buy services, upload source to public hosting or invite testers.
+Manual controls and protected environment configuration must be verified before
+using the prepared workflow. The Actions workflows are locally reviewed, not
+claimed as successfully executed in GitHub.
